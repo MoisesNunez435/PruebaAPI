@@ -34,8 +34,8 @@ namespace OpenWeatherApi
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTemp = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCondition = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,10 +56,6 @@ namespace OpenWeatherApi
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblSpeed = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblPressure = new System.Windows.Forms.Label();
-            this.lblHumedity = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -72,24 +68,26 @@ namespace OpenWeatherApi
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(226, 26);
+            this.btnSearch.Location = new System.Drawing.Point(230, 26);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(32, 30);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(71, 27);
+            this.textBox1.Location = new System.Drawing.Point(64, 26);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 29);
+            this.textBox1.Size = new System.Drawing.Size(160, 30);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
             // 
@@ -97,12 +95,11 @@ namespace OpenWeatherApi
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "City:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -114,15 +111,6 @@ namespace OpenWeatherApi
             this.panel1.Size = new System.Drawing.Size(158, 128);
             this.panel1.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 65);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblTemp
             // 
             this.lblTemp.AutoSize = true;
@@ -130,9 +118,17 @@ namespace OpenWeatherApi
             this.lblTemp.ForeColor = System.Drawing.Color.White;
             this.lblTemp.Location = new System.Drawing.Point(56, 82);
             this.lblTemp.Name = "lblTemp";
-            this.lblTemp.Size = new System.Drawing.Size(51, 30);
+            this.lblTemp.Size = new System.Drawing.Size(0, 30);
             this.lblTemp.TabIndex = 1;
-            this.lblTemp.Text = "34.5";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(63, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 64);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -140,7 +136,7 @@ namespace OpenWeatherApi
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 106);
+            this.label2.Location = new System.Drawing.Point(12, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 30);
             this.label2.TabIndex = 4;
@@ -149,9 +145,10 @@ namespace OpenWeatherApi
             // lblCondition
             // 
             this.lblCondition.AutoSize = true;
+            this.lblCondition.BackColor = System.Drawing.Color.Transparent;
             this.lblCondition.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCondition.ForeColor = System.Drawing.Color.Gray;
-            this.lblCondition.Location = new System.Drawing.Point(130, 109);
+            this.lblCondition.ForeColor = System.Drawing.Color.White;
+            this.lblCondition.Location = new System.Drawing.Point(130, 108);
             this.lblCondition.Name = "lblCondition";
             this.lblCondition.Size = new System.Drawing.Size(0, 30);
             this.lblCondition.TabIndex = 5;
@@ -171,8 +168,9 @@ namespace OpenWeatherApi
             // lblDetails
             // 
             this.lblDetails.AutoSize = true;
+            this.lblDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDetails.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDetails.ForeColor = System.Drawing.Color.Gray;
+            this.lblDetails.ForeColor = System.Drawing.Color.White;
             this.lblDetails.Location = new System.Drawing.Point(100, 162);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(0, 30);
@@ -230,7 +228,7 @@ namespace OpenWeatherApi
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(345, 254);
+            this.label6.Location = new System.Drawing.Point(294, 285);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 21);
             this.label6.TabIndex = 12;
@@ -242,7 +240,7 @@ namespace OpenWeatherApi
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(366, 185);
+            this.label7.Location = new System.Drawing.Point(315, 216);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 21);
             this.label7.TabIndex = 13;
@@ -254,7 +252,7 @@ namespace OpenWeatherApi
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(345, 223);
+            this.label8.Location = new System.Drawing.Point(294, 254);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 21);
             this.label8.TabIndex = 14;
@@ -266,7 +264,7 @@ namespace OpenWeatherApi
             this.lblLon.BackColor = System.Drawing.Color.Transparent;
             this.lblLon.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLon.ForeColor = System.Drawing.Color.White;
-            this.lblLon.Location = new System.Drawing.Point(418, 223);
+            this.lblLon.Location = new System.Drawing.Point(367, 254);
             this.lblLon.Name = "lblLon";
             this.lblLon.Size = new System.Drawing.Size(0, 21);
             this.lblLon.TabIndex = 15;
@@ -277,7 +275,7 @@ namespace OpenWeatherApi
             this.lblLat.BackColor = System.Drawing.Color.Transparent;
             this.lblLat.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLat.ForeColor = System.Drawing.Color.White;
-            this.lblLat.Location = new System.Drawing.Point(418, 254);
+            this.lblLat.Location = new System.Drawing.Point(367, 285);
             this.lblLat.Name = "lblLat";
             this.lblLat.Size = new System.Drawing.Size(0, 21);
             this.lblLat.TabIndex = 16;
@@ -334,7 +332,7 @@ namespace OpenWeatherApi
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(536, 185);
+            this.label11.Location = new System.Drawing.Point(485, 216);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 21);
             this.label11.TabIndex = 21;
@@ -346,7 +344,7 @@ namespace OpenWeatherApi
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(503, 223);
+            this.label12.Location = new System.Drawing.Point(452, 254);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(56, 21);
             this.label12.TabIndex = 22;
@@ -358,56 +356,10 @@ namespace OpenWeatherApi
             this.lblSpeed.BackColor = System.Drawing.Color.Transparent;
             this.lblSpeed.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSpeed.ForeColor = System.Drawing.Color.White;
-            this.lblSpeed.Location = new System.Drawing.Point(565, 223);
+            this.lblSpeed.Location = new System.Drawing.Point(514, 254);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(0, 21);
             this.lblSpeed.TabIndex = 23;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(144, 216);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 21);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Pressure:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(144, 247);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 21);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Humedity:";
-            // 
-            // lblPressure
-            // 
-            this.lblPressure.AutoSize = true;
-            this.lblPressure.BackColor = System.Drawing.Color.Transparent;
-            this.lblPressure.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPressure.ForeColor = System.Drawing.Color.White;
-            this.lblPressure.Location = new System.Drawing.Point(223, 216);
-            this.lblPressure.Name = "lblPressure";
-            this.lblPressure.Size = new System.Drawing.Size(0, 21);
-            this.lblPressure.TabIndex = 26;
-            // 
-            // lblHumedity
-            // 
-            this.lblHumedity.AutoSize = true;
-            this.lblHumedity.BackColor = System.Drawing.Color.Transparent;
-            this.lblHumedity.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHumedity.ForeColor = System.Drawing.Color.White;
-            this.lblHumedity.Location = new System.Drawing.Point(226, 247);
-            this.lblHumedity.Name = "lblHumedity";
-            this.lblHumedity.Size = new System.Drawing.Size(0, 21);
-            this.lblHumedity.TabIndex = 27;
             // 
             // label15
             // 
@@ -441,10 +393,6 @@ namespace OpenWeatherApi
             this.ClientSize = new System.Drawing.Size(670, 376);
             this.Controls.Add(this.lblCountry);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.lblHumedity);
-            this.Controls.Add(this.lblPressure);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -508,10 +456,6 @@ namespace OpenWeatherApi
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblSpeed;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblPressure;
-        private System.Windows.Forms.Label lblHumedity;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblCountry;
     }

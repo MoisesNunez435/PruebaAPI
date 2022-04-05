@@ -1,3 +1,8 @@
+using AppCore.Interface;
+using AppCore.Services;
+using Autofac;
+using DoMain.Interface;
+using Infraestructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +22,11 @@ namespace OpenWeatherApi
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var builder = new ContainerBuilder();
+            builder.RegisterType<JsonWeatherRepository>().As<IModel>();
+            builder.RegisterType<WeatherService>().As<IWeatherService>();
+            var container = builder.Build();
+            Application.Run(new FrmWeather(container.Resolve<IWeatherService>()));
         }
     }
 }
