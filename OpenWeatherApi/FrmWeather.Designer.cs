@@ -70,7 +70,7 @@ namespace OpenWeatherApi
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(230, 26);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(32, 30);
+            this.btnSearch.Size = new System.Drawing.Size(32, 33);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "🔍";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -82,9 +82,8 @@ namespace OpenWeatherApi
             this.textBox1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Location = new System.Drawing.Point(64, 26);
-            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 30);
+            this.textBox1.Size = new System.Drawing.Size(160, 33);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
